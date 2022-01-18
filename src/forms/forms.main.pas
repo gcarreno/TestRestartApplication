@@ -62,6 +62,7 @@ const
     'done' + LineEnding +
     'PID=$(ps ux | grep -v grep | grep -i APPFILENAME | cut -d" " -f 2)' + LineEnding +
     'if [ "${PID}" != "" ]; then' + LineEnding +
+    'echo Killing APPFILENAME' + LineEnding +
     'kill ${PID}' + LineEnding +
     'fi' + LineEnding +
     './APPFILENAME';
@@ -103,7 +104,6 @@ procedure TfrmMain.RestartApplication;
 var
   sAppFileName: String;
   sScript: String;
-  sOutput: String;
   msScript: TStringStream;
   process: TProcess;
   index: Integer;
