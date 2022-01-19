@@ -43,7 +43,7 @@ jobs:
     - name: Build the Main App Qt5 (Ubuntu)
       if: ${{ matrix.operating-system == 'ubuntu-latest' }}
       run: |
-        sudo apt install libqt5pas -y
+        sudo apt install libqt5pas-dev -y
         lazbuild -B --bm=Release --ws= qt5 "src/testrestartapplication.lpi"
         mv bin/testrestartapplication bin/testrestartapplication-qt5
 
