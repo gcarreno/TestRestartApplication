@@ -45,7 +45,7 @@ jobs:
       run: |
         sudo apt update
         sudo apt install libqt5pas-dev -y
-        lazbuild -B --bm=Release --ws= qt5 "src/testrestartapplication.lpi"
+        lazbuild -B --bm=Release --ws=qt5 "src/testrestartapplication.lpi"
         mv bin/testrestartapplication bin/testrestartapplication-qt5
 
     - name: Build the Main App (macOS)
