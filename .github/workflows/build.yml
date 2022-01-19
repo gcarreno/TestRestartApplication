@@ -16,7 +16,7 @@ jobs:
 
     strategy:
       matrix:
-        operating-system: [ ubuntu-latest, windows-latest ]
+        operating-system: [ ubuntu-latest, windows-latest, macos-latest ]
         lazarus-versions: [ stable, 2.0.12, 2.0.10 ]
 
     steps:
@@ -97,7 +97,7 @@ jobs:
     - name: Create GitHub release
       uses: softprops/action-gh-release@v1
       with:
-        name: testrestartapplication ${{ steps.vars.outputs.tag }}
+        name: TestRestartApplication ${{ steps.vars.outputs.tag }}
         body_path: release-notes.md
         files: |
           testrestartapplication/*.tar.gz
