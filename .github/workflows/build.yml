@@ -21,12 +21,12 @@ jobs:
 
     steps:
     - name: Checkout Repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       with:
         submodules: true
 
     - name: Install Lazarus
-      uses: gcarreno/setup-lazarus@v3.0.16
+      uses: gcarreno/setup-lazarus@v3.2.7
       with:
         lazarus-version: ${{ matrix.lazarus-versions }}
 
@@ -54,14 +54,14 @@ jobs:
 
     - name: Upload binary (Windows)
       if: ${{ (matrix.operating-system == 'windows-latest')  &&  (matrix.lazarus-versions == 'stable') }}
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: testrestartapplication
         path: bin/testrestartapplication.exe
 
     - name: Upload binary (Ubuntu)
       if: ${{ (matrix.operating-system == 'ubuntu-latest')  &&  (matrix.lazarus-versions == 'stable') }}
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: testrestartapplication
         path: bin/testrestartapplication-*
@@ -75,14 +75,14 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Set output
       id: vars
       run: echo ::set-output name=tag::${GITHUB_REF#refs/*/}
 
     - name: Download the Release binary
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v3
 
     - name: List files
       run: ls -alF testrestartapplication
